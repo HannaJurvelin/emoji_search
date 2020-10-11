@@ -1,24 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Collapsible from './components/Collapsible'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="Bg">
+      <header>
+        <h1>Emoji search</h1>
+        <input type="text" id="search"/>
       </header>
+      <div>
+        <p>Tulostusalue</p>
+        <Collapsible emoji=":)" name="Slight Smile"/>
+        <Collapsible emoji=":(" name="2"/>
+        <Collapsible emoji=":|" name="3"/>
+      </div>
     </div>
   );
 }
