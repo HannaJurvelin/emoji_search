@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Collapsible from "./components/Collapsible";
+import "./styles.scss";
 const axios = require("axios").default;
 require("dotenv").config();
 
@@ -30,18 +30,20 @@ function App() {
   return (
     <div className="Bg">
       <header>
-        <h1>Emoji search</h1>
+        <h1>Search for emoji</h1>
         <input type="text" id="search" />
       </header>
-      {data
-        ? data.map((item) => (
-            <Collapsible
-              emoji={item.character}
-              name={item.unicodeName}
-              key={item.unicodeName}
-            />
-          ))
-        : null}
+      <div className="output">
+        {data
+          ? data.map((item) => (
+              <Collapsible
+                emoji={item.character}
+                name={item.unicodeName}
+                key={item.unicodeName}
+              />
+            ))
+          : null}
+      </div>
     </div>
   );
 }

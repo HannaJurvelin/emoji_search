@@ -13,7 +13,7 @@ class Collapsible extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="collapsible">
         <h2 onClick={(e) => this.togglePanel(e)}>
           {this.props.emoji} {this.props.name}
         </h2>
