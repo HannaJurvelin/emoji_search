@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./App.css";
 import Collapsible from "./components/Collapsible";
+import SearchBar from "./components/SearchBar";
 import "./styles.scss";
 const axios = require("axios").default;
 require("dotenv").config();
 
 function App() {
   const [data, setData] = useState(null);
+  const [allData, setAllData] = useState(null);
 
   useEffect(() => {
     axios
@@ -17,6 +19,7 @@ function App() {
         // handle success
         console.log(response.data);
         setData(response.data);
+        setAllData(response.data);
       })
       .catch(function (error) {
         // handle error
@@ -27,11 +30,15 @@ function App() {
       });
   }, []);
 
+  const filterData = useCallback((filter) => {
+    setData(filter);
+  }, []);
+
   return (
     <div className="Bg">
       <header>
         <h1>Search for emoji</h1>
-        <input type="text" id="search" />
+        <SearchBar data={allData} filterData={filterData} />
       </header>
       <div className="output">
         {data
@@ -40,6 +47,8 @@ function App() {
                 emoji={item.character}
                 name={item.unicodeName}
                 key={item.unicodeName}
+                group={item.group}
+                subGroup={item.subGroup}
               />
             ))
           : null}

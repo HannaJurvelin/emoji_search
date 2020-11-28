@@ -1,7 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
 $blue: #0d4ca0;
-$white: #fffdf8;
+$white: hsl(43, 100%, 99%);
+$light-grey: #f1f2f2;
+
+//mobile breakpoint
+$screen-sm-max: 576px;
+
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
 
 body {
   background-color: #f3c346;
@@ -29,6 +39,10 @@ p {
   display: flex;
   flex-direction: column;
   box-shadow: 0px 16px 16px 16px #e3b12f;
+
+  @include sm {
+    width: 90%;
+  }
 }
 
 h2 {
@@ -39,6 +53,11 @@ header {
   background-color: $white;
   padding: 40px;
   border-radius: 20px 20px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .output {
@@ -54,4 +73,22 @@ header {
   margin-bottom: 1.5rem;
   border-radius: 30px;
   width: 75%;
+}
+
+.searchBar {
+  width: 12rem;
+  background-color: $light-grey;
+  border: 2px solid $light-grey;
+  border-radius: 30px;
+  padding: 9px 32px;
+  font-size: 1.5rem;
+}
+
+.searchBar:focus {
+  border: 2px solid $blue;
+  background-color: $white;
+}
+
+.searchBar:focus::placeholder {
+  color: transparent;
 }
