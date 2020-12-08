@@ -6,10 +6,12 @@ import "./styles.scss";
 const axios = require("axios").default;
 require("dotenv").config();
 
+// root function
 function App() {
   const [data, setData] = useState(null);
   const [allData, setAllData] = useState(null);
 
+  // fetches data
   useEffect(() => {
     axios
       .get(
@@ -30,10 +32,12 @@ function App() {
       });
   }, []);
 
+  // filters data
   const filterData = useCallback((filter) => {
     setData(filter);
   }, []);
 
+  // visible content
   return (
     <div className="Bg">
       <header>

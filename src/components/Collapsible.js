@@ -1,5 +1,6 @@
 import React from "react";
 
+// collapsible block component
 class Collapsible extends React.Component {
   constructor(props) {
     super(props);

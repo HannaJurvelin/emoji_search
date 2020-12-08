@@ -1,5 +1,7 @@
+// font used in site
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
+// colors used in site
 $blue: #0d4ca0;
 $white: hsl(43, 100%, 99%);
 $light-grey: #f1f2f2;
@@ -40,6 +42,7 @@ p {
   flex-direction: column;
   box-shadow: 0px 16px 16px 16px #e3b12f;
 
+  // breakpoint
   @include sm {
     width: 90%;
   }

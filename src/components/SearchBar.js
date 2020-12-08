@@ -1,5 +1,6 @@
 import React from "react";
 
+// search component
 const SearchBar = (props) => {
   function filterResults(e) {
     const searchFilter = props.data.filter((data) =>
